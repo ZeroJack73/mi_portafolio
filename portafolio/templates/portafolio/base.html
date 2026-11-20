@@ -24,7 +24,7 @@
                 <a class="{% if request.resolver_match.url_name == 'contacto' %}is-active{% endif %}" href="{% url 'portafolio:contacto' %}">Contacto</a>
             </nav>
             <div class="header-actions">
-                <a class="button button-small button-cv" href="mailto:parbrayanjack@gmail.com?subject=Solicitud%20de%20CV">Solicitar CV</a>
+                <a class="button button-small button-cv" href="{% static 'portafolio/files/cv-brayan-jack-par-tzul.pdf' %}" download="CV-Brayan-Jack-Par-Tzul.pdf">Descargar CV</a>
                 <a class="profile-link" href="{% url 'portafolio:sobre_mi' %}" aria-label="Ir a Sobre mí">B</a>
             </div>
         </div>
@@ -37,7 +37,7 @@
             <div class="footer-about">
                 <a class="brand" href="{% url 'portafolio:inicio' %}">Portafolio <span>/ Dev</span></a>
                 <p>Arquitectura de software escalable, servicios robustos y soluciones web orientadas a seguridad e integridad construidas con Python y Django.</p>
-                <div class="footer-tags"><span>♧ Python 3.12</span><span>◇ Django 5.x</span></div>
+                <div class="footer-tags"><span>♧ Python 3.14</span><span>◇ Django 6.1</span></div>
             </div>
             <div class="footer-column">
                 <h2>Navegación</h2>
