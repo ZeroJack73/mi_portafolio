@@ -41,6 +41,42 @@ document.querySelectorAll("[data-filter]").forEach((filterButton) => {
     });
 });
 
+const contactForm = document.querySelector("#contact-form");
+
+if (contactForm) {
+    const formStatus = contactForm.querySelector("[data-form-status]");
+
+    contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const fields = Array.from(contactForm.querySelectorAll("[required]"));
+        fields.forEach((field) => field.removeAttribute("aria-invalid"));
+        formStatus.classList.remove("is-error", "is-success");
+
+        const emptyField = fields.find((field) => !field.value.trim());
+        if (emptyField) {
+            emptyField.setAttribute("aria-invalid", "true");
+            formStatus.textContent = "Completa todos los campos obligatorios.";
+            formStatus.classList.add("is-error");
+            emptyField.focus();
+            return;
+        }
+
+        const emailField = contactForm.querySelector('input[type="email"]');
+        if (!emailField.validity.valid) {
+            emailField.setAttribute("aria-invalid", "true");
+            formStatus.textContent = "Escribe un correo electrónico válido.";
+            formStatus.classList.add("is-error");
+            emailField.focus();
+            return;
+        }
+
+        formStatus.textContent = "Validación correcta. No se envió ningún mensaje al servidor.";
+        formStatus.classList.add("is-success");
+        contactForm.reset();
+    });
+}
+
 const currentYear = document.querySelector("[data-current-year]");
 
 if (currentYear) {

@@ -14,8 +14,8 @@
             <div class="contact-detail">
                 <h2>Correo electrónico</h2>
                 <div class="email-line">
-                    <a href="mailto:parbrayanjack@gmail.com">parbrayanjack@gmail.com</a>
-                    <button class="copy-button" type="button" data-copy-email="parbrayanjack@gmail.com">Copiar</button>
+                    <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>
+                    <button class="copy-button" type="button" data-copy-email="{{ contact_email }}">Copiar</button>
                 </div>
                 <p class="copy-status" aria-live="polite" data-copy-status></p>
             </div>
@@ -26,7 +26,7 @@
             </div>
         </section>
 
-        <form class="contact-form" id="contact-form" action="mailto:parbrayanjack@gmail.com" method="post" enctype="text/plain">
+        <form class="contact-form" id="contact-form" novalidate>
             <label>
                 <span>Nombre <b>*</b></span>
                 <input type="text" name="name" placeholder="Tu nombre" autocomplete="name" required>
@@ -44,6 +44,7 @@
                 <textarea name="message" rows="5" placeholder="Cuéntame un poco más..." required></textarea>
             </label>
             <button class="button form-wide" type="submit">Enviar mensaje <span aria-hidden="true">→</span></button>
+            <p class="form-status form-wide" data-form-status role="status" aria-live="polite"></p>
         </form>
     </div>
 </div>

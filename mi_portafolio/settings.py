@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
 from pathlib import Path
-import os
-
-from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,36 +19,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
-# Keep debug enabled locally and disable it through Vercel's environment variables.
-DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() == 'true'
+# SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY = 'django-insecure-local-development-only'
+DEBUG = True
 
-# Set DJANGO_SECRET_KEY to a private value outside local development.
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-if not SECRET_KEY:
-    if not DEBUG:
-        raise ImproperlyConfigured('Set DJANGO_SECRET_KEY when DEBUG is disabled.')
-    SECRET_KEY = 'django-insecure-local-development-only'
-
-ALLOWED_HOSTS = [
-    host.strip()
-    for host in os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
-    if host.strip()
-]
-vercel_host = os.environ.get('VERCEL_URL')
-if vercel_host and vercel_host not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append(vercel_host)
-
-CSRF_TRUSTED_ORIGINS = [
-    f'https://{host}'
-    for host in ALLOWED_HOSTS
-    if host not in ('localhost', '127.0.0.1')
-]
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-if not DEBUG:
-    SECURE_SSL_REDIRECT = True
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -142,7 +114,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Email

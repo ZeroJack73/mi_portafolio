@@ -399,7 +399,6 @@ h1, h2, h3, p { margin-top: 0; }
 }
 
 .project-image {
-    position: relative;
     height: 190px;
     overflow: hidden;
     display: block;
@@ -414,24 +413,12 @@ h1, h2, h3, p { margin-top: 0; }
     transition: transform .3s ease;
 }
 
-.project-card:hover .project-image img { transform: scale(1.035); }
-
-.image-badge,
-.image-overlay {
-    position: absolute;
-    z-index: 1;
-    right: 10px;
-    bottom: 10px;
-    padding: 5px 8px;
-    border: 1px solid rgba(255,255,255,.4);
-    border-radius: 5px;
-    background: rgba(255,255,255,.92);
-    color: var(--deep);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: .06em;
-    text-transform: uppercase;
+.project-image .project-thumbnail-ruta-equidad {
+    object-fit: contain;
+    background: #f5f7ff;
 }
+
+.project-card:hover .project-image img { transform: scale(1.035); }
 
 .project-card-body { padding: 14px 15px 13px; }
 
@@ -653,23 +640,13 @@ h1, h2, h3, p { margin-top: 0; }
 .filter-button span { margin-left: 3px; opacity: .75; }
 .projects-grid { gap: 18px; }
 .portfolio-card .project-image { height: 205px; }
-.portfolio-card .image-overlay { right: auto; bottom: 10px; left: 10px; color: white; background: rgba(0, 38, 40, .7); }
-.portfolio-card .image-badge { bottom: 10px; font-size: 8px; }
 .portfolio-card .project-card-body { padding: 13px 15px 14px; }
 .portfolio-card .project-card-body > h2 { font-size: 16px; }
 .portfolio-card .project-card-body > p { min-height: 36px; }
 .tag-list { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0 12px; }
 .tag-list span { padding: 4px 7px; border-radius: 4px; background: #f0f3f8; color: #627279; font-size: 8px; }
-.card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.card-actions { display: grid; grid-template-columns: 1fr; gap: 7px; }
 .button-compact { min-height: 30px; padding: 0 8px; border-radius: 5px; font-size: 9px; white-space: nowrap; }
-
-.project-detail-page { min-height: 430px; padding-top: 40px; padding-bottom: 65px; }
-.detail-back { color: #60737a; font-size: 11px; }
-.detail-back:hover { color: var(--deep); }
-.project-detail { margin-top: 20px; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: center; gap: clamp(24px, 5vw, 60px); }
-.project-detail > img { width: 100%; aspect-ratio: 1.45 / 1; display: block; object-fit: cover; border: 6px solid #fff; border-radius: 14px; box-shadow: 0 8px 22px rgba(34, 57, 78, .1); }
-.project-detail-copy .page-title { margin-bottom: 10px; }
-.project-detail-copy .page-intro { margin-bottom: 14px; }
 
 @media (max-width: 900px) {
     .header-inner, .page-container, .footer-inner { width: min(100% - 40px, 760px); }
@@ -684,7 +661,6 @@ h1, h2, h3, p { margin-top: 0; }
     .hero-art { min-height: 250px; }
     .project-image { height: 155px; }
     .portfolio-card .project-image { height: 165px; }
-    .project-detail { grid-template-columns: 1fr; gap: 22px; }
     .footer-inner { gap: 28px; }
 }
 
@@ -724,8 +700,6 @@ h1, h2, h3, p { margin-top: 0; }
     .about-cta h2 br { display: none; }
     .projects-page { padding-top: 28px; }
     .projects-grid { gap: 13px; }
-    .project-detail-page { padding-top: 28px; }
-    .project-detail { margin-top: 15px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -870,6 +844,9 @@ h1, h2, h3, p { margin-top: 0; }
 .email-line > a { color: var(--deep); font-size: 12px; font-weight: 650; }
 .copy-button { padding: 4px 7px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: #556a70; font-size: 8px; cursor: pointer; }
 .copy-status { min-height: 13px; margin: 4px 0 0; color: #54746c; font-size: 9px; }
+.form-status { min-height: 13px; margin: 0; color: var(--muted); font-size: 9px; }
+.form-status.is-error { color: #b65b5b; }
+.form-status.is-success { color: #54746c; }
 .contact-detail > p { margin: 8px 0; color: #536970; font-size: 10px; }
 
 .contact-form {
@@ -901,6 +878,7 @@ h1, h2, h3, p { margin-top: 0; }
 .contact-form textarea { min-height: 110px; resize: vertical; }
 .contact-form input:focus,
 .contact-form textarea:focus { border-color: #9eb4c5; background: #fff; }
+.contact-form [aria-invalid="true"] { border-color: #b65b5b; background: #fff8f8; }
 .contact-form input::placeholder,
 .contact-form textarea::placeholder { color: #9aa5ad; }
 .form-wide { grid-column: 1 / -1; }
