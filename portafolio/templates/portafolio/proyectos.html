@@ -1,1 +1,42 @@
+{% extends "portafolio/base.html" %}
+{% load static %}
 
+{% block title %}Proyectos | Portafolio / Dev{% endblock %}
+
+{% block content %}
+<div class="page-container projects-page">
+    <section class="projects-heading">
+        <p class="eyebrow">Trabajo seleccionado</p>
+        <h1 class="page-title">Proyectos</h1>
+        <p class="page-intro">Sistemas backend y soluciones arquitectónicas desarrolladas con Python y Django.</p>
+    </section>
+    <div class="filter-list" role="group" aria-label="Filtrar proyectos">
+        <button class="filter-button is-selected" type="button" data-filter="todos" aria-pressed="true">Todos <span>3</span></button>
+        <button class="filter-button" type="button" data-filter="salud" aria-pressed="false">Salud</button>
+        <button class="filter-button" type="button" data-filter="videojuegos" aria-pressed="false">Videojuegos</button>
+        <button class="filter-button" type="button" data-filter="seguridad" aria-pressed="false">Seguridad</button>
+    </div>
+    <div class="project-grid projects-grid">
+        {% for project in projects %}
+        <article class="project-card portfolio-card" data-category="{{ project.category }}">
+            <div class="project-image">
+                <img src="{% static 'portafolio/img/' %}{{ project.name }}.png" alt="{{ project.title }}" loading="lazy">
+                <span class="image-overlay">{{ project.category }}</span>
+                <span class="image-badge">{{ project.name }}</span>
+            </div>
+            <div class="project-card-body">
+                <h2>{{ project.name }}</h2>
+                <p>{{ project.description }}</p>
+                <div class="tag-list">
+                    {% for tag in project.tags %}<span>{{ tag }}</span>{% endfor %}
+                </div>
+                <div class="card-actions">
+                    <span class="button button-light button-compact">‹› Código</span>
+                    <span class="button button-compact">Ver Proyecto ↗</span>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

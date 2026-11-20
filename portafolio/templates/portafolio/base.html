@@ -1,1 +1,66 @@
-
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7ff">
+    <title>{% block title %}Portafolio / Dev{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'portafolio/css/estilos.css' %}">
+    <script src="{% static 'portafolio/js/main.js' %}" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="{% url 'portafolio:inicio' %}">Portafolio <span>/ Dev</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                <span class="menu-lines" aria-hidden="true"></span>
+                <span class="visually-hidden">Abrir menú</span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+                <a class="{% if request.resolver_match.url_name == 'inicio' %}is-active{% endif %}" href="{% url 'portafolio:inicio' %}">Inicio</a>
+                <a class="{% if request.resolver_match.url_name == 'sobre_mi' %}is-active{% endif %}" href="{% url 'portafolio:sobre_mi' %}">Sobre mí</a>
+                <a class="{% if request.resolver_match.url_name == 'habilidades' %}is-active{% endif %}" href="{% url 'portafolio:habilidades' %}">Habilidades</a>
+                <a class="{% if request.resolver_match.url_name == 'proyectos' %}is-active{% endif %}" href="{% url 'portafolio:proyectos' %}">Proyectos</a>
+                <a class="{% if request.resolver_match.url_name == 'contacto' %}is-active{% endif %}" href="{% url 'portafolio:contacto' %}">Contacto</a>
+            </nav>
+            <div class="header-actions">
+                <button class="button button-small button-cv" type="button" disabled title="CV próximamente">
+                    Descargar CV
+                </button>
+                <a class="profile-link" href="{% url 'portafolio:sobre_mi' %}" aria-label="Ir a Sobre mí">B</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-about">
+                <a class="brand" href="{% url 'portafolio:inicio' %}">Portafolio <span>/ Dev</span></a>
+                <p>Arquitectura de software escalable, servicios robustos y soluciones web orientadas a seguridad e integridad construidas con Python y Django.</p>
+                <div class="footer-tags"><span>♧ Python 3.12</span><span>◇ Django 5.x</span></div>
+            </div>
+            <div class="footer-column">
+                <h2>Navegación</h2>
+                <a href="{% url 'portafolio:inicio' %}">Inicio</a>
+                <a href="{% url 'portafolio:sobre_mi' %}">Sobre mí</a>
+                <a href="{% url 'portafolio:habilidades' %}">Habilidades</a>
+                <a href="{% url 'portafolio:proyectos' %}">Proyectos</a>
+                <a href="{% url 'portafolio:contacto' %}">Contacto</a>
+            </div>
+            <div class="footer-column">
+                <h2>Conexión &amp; canales</h2>
+                <span>⌘ &nbsp; Repositorio GitHub</span>
+                <span>✦ &nbsp; LinkedIn profesional</span>
+                <span>✉ &nbsp; Contacto profesional</span>
+            </div>
+            <div class="footer-bottom">
+                <span>© <span data-current-year></span> mi_portafolio · Desarrollado con Django</span>
+                <span>Arquitectura limpia y clean code</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

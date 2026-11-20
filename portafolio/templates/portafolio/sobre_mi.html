@@ -1,1 +1,69 @@
+{% extends "portafolio/base.html" %}
+{% load static %}
 
+{% block title %}Sobre mí | Portafolio / Dev{% endblock %}
+
+{% block content %}
+<div class="page-container about-page">
+    <p class="eyebrow page-eyebrow">Perfil profesional</p>
+    <h1 class="page-title">Sobre Mí</h1>
+    <p class="page-intro">Estudiante de la Facultad de Ingeniería en la Universidad del Valle de Guatemala, Campus Altiplano. Actualmente curso el Técnico Universitario en Informática.</p>
+
+    <section class="about-intro">
+        <figure class="portrait-card">
+            <img src="{% static 'portafolio/img/my.jpeg' %}" alt="Fotografía de Brayan Jack Par Tzul">
+            <figcaption>Brayan Jack Par Tzul</figcaption>
+        </figure>
+        <div class="about-copy">
+            <p class="eyebrow">— Esencia &amp; enfoque</p>
+            <h2>Arquitectura limpia, soluciones directas y código que perdura.</h2>
+            <p>Creo en el desarrollo de software como un ejercicio de diseño y precisión. Cada línea de código responde a una intención: resolver problemas complejos mediante soluciones escalables, eficientes y honestas que evolucionan con el tiempo.</p>
+            <p>Mi enfoque combina rigor técnico con curiosidad constante por aprender y mejorar.</p>
+            <div class="social-links">
+                <span>⌘ GitHub</span>
+                <span>in LinkedIn</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section education-section">
+        <div class="section-heading compact-heading">
+            <div>
+                <p class="eyebrow">Formación</p>
+                <h2>Estudios Clave</h2>
+            </div>
+        </div>
+        <div class="education-list">
+            <div class="education-row">
+                <div><h3>Técnico Universitario en Informática</h3><p>Facultad de Ingeniería</p></div>
+                <span>En curso</span>
+            </div>
+            <div class="education-row">
+                <div><h3>Universidad del Valle de Guatemala (UVG)</h3><p>Campus Altiplano</p></div>
+                <span>Formación actual</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section interests-section">
+        <p class="eyebrow">Aficiones</p>
+        <h2>Intereses</h2>
+        <div class="interest-grid">
+            <article class="interest-card"><span>♟</span><h3>Ajedrez</h3><p>Estrategia y resolución de problemas.</p></article>
+            <article class="interest-card"><span>⌘</span><h3>Open Source</h3><p>Proyectos y aprendizaje colaborativo.</p></article>
+            <article class="interest-card"><span>▤</span><h3>Lectura</h3><p>Ideas que inspiran nuevas perspectivas.</p></article>
+            <article class="interest-card"><span>◷</span><h3>Programación</h3><p>Crear código limpio y útil.</p></article>
+        </div>
+    </section>
+
+    <section class="about-cta">
+        <p class="eyebrow">¿Buscas una colaboración?</p>
+        <h2>¿Tienes un proyecto desafiante<br>en mente o buscas fortalecer tu equipo técnico?</h2>
+        <p>Estoy disponible para conversaciones sobre arquitectura, optimización de aplicaciones y desarrollo escalable. Conversemos cómo puedo ayudarte a transformar ideas en soluciones.</p>
+        <div class="hero-actions">
+            <a class="button button-light" href="{% url 'portafolio:contacto' %}">Escríbeme un mensaje <span aria-hidden="true">↗</span></a>
+            <a class="button button-ghost" href="{% url 'portafolio:proyectos' %}">Explorar proyectos</a>
+        </div>
+    </section>
+</div>
+{% endblock %}
