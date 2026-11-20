@@ -1,1 +1,41 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7ff">
+    <title>404 | Portafolio / Dev</title>
+    <link rel="stylesheet" href="{% static 'portafolio/css/estilos.css' %}">
+</head>
+<body class="error-body">
+    <main class="error-page">
+        <p class="error-eyebrow">Destino no localizado · Archivo digital</p>
+        <div class="error-number">404</div>
+        <h1>Página no encontrada en este estante</h1>
+        <p class="error-description">Parece que la página que buscas no existe, cambió de lugar o fue retirada del sitio.</p>
 
+        <section class="error-log" aria-label="Detalle del error">
+            <div class="log-heading"><span></span><span></span><span></span><b>Consulta de ruta</b></div>
+            <p>La dirección solicitada no coincide con ninguna página disponible.</p>
+            <code>django.http.Http404: ruta no encontrada</code>
+        </section>
+
+        <div class="error-actions">
+            <a class="button" href="{% url 'portafolio:inicio' %}">Volver al inicio</a>
+            <a class="button button-light" href="{% url 'portafolio:proyectos' %}">Explorar proyectos</a>
+        </div>
+
+        <section class="recommended-pages">
+            <h2>Rutas recomendadas</h2>
+            <div class="recommended-grid">
+                <a href="{% url 'portafolio:inicio' %}"><span>⌂</span><b>Inicio</b><small>Portada principal</small></a>
+                <a href="{% url 'portafolio:sobre_mi' %}"><span>♙</span><b>Sobre mí</b><small>Conoce mi perfil</small></a>
+                <a href="{% url 'portafolio:proyectos' %}"><span>▣</span><b>Proyectos</b><small>Trabajo seleccionado</small></a>
+                <a href="{% url 'portafolio:contacto' %}"><span>✉</span><b>Contacto</b><small>Hablemos</small></a>
+            </div>
+        </section>
+        <p class="error-quote">“No hay ruta que no pueda redibujarse.”<br><span>— Página 404</span></p>
+    </main>
+</body>
+</html>

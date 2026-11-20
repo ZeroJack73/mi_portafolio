@@ -1,1 +1,61 @@
+{% extends "portafolio/base.html" %}
 
+{% block title %}Habilidades | Portafolio / Dev{% endblock %}
+
+{% block content %}
+<div class="page-container skills-page">
+    <header class="skills-heading">
+        <h1>Habilidades</h1>
+        <p>Stack técnico enfocado en Python, Django y desarrollo web robusto.</p>
+    </header>
+
+    <section class="skill-group">
+        <h2>Backend</h2>
+        <div class="skill-grid skill-grid-five">
+            <article class="skill-card"><span class="skill-icon">Py</span><h3>Python</h3><p>Core &amp; OOP</p></article>
+            <article class="skill-card"><span class="skill-icon">Dj</span><h3>Django</h3><p>ORM &amp; MVT</p></article>
+            <article class="skill-card"><span class="skill-icon">API</span><h3>Django REST</h3><p>APIs RESTful</p></article>
+            <article class="skill-card"><span class="skill-icon">Ce</span><h3>Celery</h3><p>Async Tasks</p></article>
+            <article class="skill-card"><span class="skill-icon">Re</span><h3>Redis</h3><p>Cache &amp; Broker</p></article>
+        </div>
+    </section>
+
+    <section class="skill-group">
+        <h2>Frontend</h2>
+        <div class="skill-grid skill-grid-five">
+            <article class="skill-card"><span class="skill-icon">HT</span><h3>Django HTML</h3><p>Templates &amp; Tags</p></article>
+            <article class="skill-card"><span class="skill-icon">5/C</span><h3>HTML5 / CSS3</h3><p>Semántica &amp; estilos</p></article>
+            <article class="skill-card"><span class="skill-icon">Tw</span><h3>Tailwind CSS</h3><p>Utility-first</p></article>
+            <article class="skill-card"><span class="skill-icon">JS</span><h3>JavaScript</h3><p>ES6+ &amp; fetch</p></article>
+            <article class="skill-card"><span class="skill-icon">Hx</span><h3>HTMX</h3><p>Interacciones ligeras</p></article>
+        </div>
+    </section>
+
+    <section class="skill-group">
+        <h2>Bases de Datos &amp; Infraestructura</h2>
+        <div class="skill-grid skill-grid-five">
+            <article class="skill-card"><span class="skill-icon">Pg</span><h3>PostgreSQL</h3><p>Consultas &amp; índices</p></article>
+            <article class="skill-card"><span class="skill-icon">Dk</span><h3>Docker</h3><p>Entornos &amp; imágenes</p></article>
+            <article class="skill-card"><span class="skill-icon">Ng</span><h3>Nginx</h3><p>Proxy &amp; SSL</p></article>
+            <article class="skill-card"><span class="skill-icon">Lx</span><h3>Linux</h3><p>Ubuntu &amp; terminal</p></article>
+            <article class="skill-card"><span class="skill-icon">Sq</span><h3>SQLite</h3><p>Test &amp; local</p></article>
+        </div>
+    </section>
+
+    <section class="skill-group">
+        <h2>Calidad &amp; Entornos</h2>
+        <div class="skill-grid skill-grid-three">
+            <article class="skill-card"><span class="skill-icon">Py</span><h3>Pytest</h3><p>Unit &amp; Integration Tests</p></article>
+            <article class="skill-card"><span class="skill-icon">Git</span><h3>Git &amp; GitHub</h3><p>Flujo de desarrollo</p></article>
+            <article class="skill-card"><span class="skill-icon">CI</span><h3>CI / CD</h3><p>Automatización de despliegues</p></article>
+        </div>
+    </section>
+
+    <div class="skill-principles">
+        <article><h3>Clean Code</h3><p>Legibilidad, funciones pequeñas y responsabilidad clara.</p></article>
+        <article><h3>TDD &amp; Cobertura</h3><p>Pruebas automatizadas durante el desarrollo.</p></article>
+        <article><h3>Seguridad Django</h3><p>Buenas prácticas y protección de aplicaciones.</p></article>
+    </div>
+    <div class="skills-action"><a class="button" href="{% url 'portafolio:proyectos' %}">Ver Proyectos <span aria-hidden="true">→</span></a></div>
+</div>
+{% endblock %}

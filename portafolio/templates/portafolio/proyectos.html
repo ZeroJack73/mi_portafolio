@@ -31,8 +31,8 @@
                     {% for tag in project.tags %}<span>{{ tag }}</span>{% endfor %}
                 </div>
                 <div class="card-actions">
-                    <span class="button button-light button-compact">‹› Código</span>
-                    <span class="button button-compact">Ver Proyecto ↗</span>
+                    <a class="button button-light button-compact" href="https://github.com/ZeroJack73" target="_blank" rel="noopener noreferrer">‹› Código</a>
+                    <a class="button button-compact" href="{% url 'portafolio:proyecto_detalle' project.name %}">Ver Proyecto ↗</a>
                 </div>
             </div>
         </article>

@@ -7,7 +7,6 @@
 <div class="page-container home-page">
     <section class="home-hero">
         <div class="hero-copy">
-            <p class="eyebrow"><span class="status-dot"></span> Brayan Jack Par Tzul · Técnico Universitario en Informática</p>
             <h1>Construyendo arquitectura limpia para equipos.</h1>
             <p class="lead">Estudiante de la Facultad de Ingeniería en la Universidad del Valle de Guatemala, Campus Altiplano. Actualmente curso el Técnico Universitario en Informática.</p>
             <div class="hero-actions">
@@ -15,14 +14,20 @@
                 <a class="button button-light" href="{% url 'portafolio:contacto' %}"><span aria-hidden="true">✉</span> Contactar</a>
             </div>
         </div>
-        <figure class="hero-art">
-            <img class="hero-photo" src="{% static 'portafolio/img/my.jpeg' %}" alt="Fotografía de Brayan Jack Par Tzul">
-            <div class="art-grid" aria-hidden="true"></div>
-            <figcaption class="art-content">
-                <span class="art-kicker">Backend &amp; estructura</span>
-                <span>Django · Arquitectura web</span>
-            </figcaption>
-        </figure>
+        <div class="hero-profile">
+            <figure class="hero-art">
+                <img class="hero-photo" src="{% static 'portafolio/img/my.jpeg' %}" alt="Fotografía de Brayan Jack Par Tzul">
+                <div class="art-grid" aria-hidden="true"></div>
+                <figcaption class="art-content">
+                    <span class="art-kicker">Backend &amp; estructura</span>
+                    <span>Django · Arquitectura web</span>
+                </figcaption>
+            </figure>
+            <div class="profile-caption">
+                <strong>Brayan Jack Par Tzul</strong>
+                <span>Técnico Universitario en Informática · UVG Altiplano</span>
+            </div>
+        </div>
     </section>
 
     <section class="featured-section">
@@ -37,16 +42,15 @@
         <div class="project-grid featured-grid">
             {% for project in projects %}
             <article class="project-card featured-card">
-                <a class="project-image" href="{% url 'portafolio:proyectos' %}" aria-label="Ver {{ project.title }}">
+                <a class="project-image" href="{% url 'portafolio:proyecto_detalle' project.name %}" aria-label="Ver {{ project.title }}">
                     <img src="{% static 'portafolio/img/' %}{{ project.name }}.png" alt="{{ project.title }}" loading="lazy">
-                    <span class="image-badge">{{ project.label }}</span>
                 </a>
                 <div class="project-card-body">
                     <h3>{{ project.title }}</h3>
                     <p>{{ project.description }}</p>
                     <div class="card-meta">
                         <span>{{ project.tags|join:" / " }}</span>
-                        <a href="{% url 'portafolio:proyectos' %}">Ver detalles <span aria-hidden="true">→</span></a>
+                        <a href="{% url 'portafolio:proyecto_detalle' project.name %}">Ver detalles <span aria-hidden="true">→</span></a>
                     </div>
                 </div>
             </article>
@@ -57,11 +61,11 @@
     <section class="contact-banner">
         <div>
             <p class="eyebrow">¿Hablemos de colaboración?</p>
-            <p>Disponible para proyectos backend e ingeniería web con Django.</p>
+            <p>¿Tienes una idea para construir con Django? Conversemos sobre tu proyecto.</p>
         </div>
         <div class="banner-actions">
             <a class="button button-light" href="{% url 'portafolio:contacto' %}">✉ &nbsp; Enviar mensaje</a>
-            <span class="availability">↗ &nbsp; GitHub</span>
+            <a class="availability" href="https://github.com/ZeroJack73" target="_blank" rel="noopener noreferrer">↗ &nbsp; GitHub</a>
         </div>
     </section>
 </div>

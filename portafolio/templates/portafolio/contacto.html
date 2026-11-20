@@ -1,1 +1,50 @@
+{% extends "portafolio/base.html" %}
 
+{% block title %}Contacto | Portafolio / Dev{% endblock %}
+
+{% block content %}
+<div class="page-container contact-page">
+    <header class="contact-heading">
+        <h1 class="page-title">Contacto</h1>
+        <p>Hablemos sobre arquitectura de software, backend o nuevos proyectos.</p>
+    </header>
+
+    <div class="contact-layout">
+        <section class="contact-details" aria-label="Datos de contacto">
+            <div class="contact-detail">
+                <h2>Correo electrónico</h2>
+                <div class="email-line">
+                    <a href="mailto:parbrayanjack@gmail.com">parbrayanjack@gmail.com</a>
+                    <button class="copy-button" type="button" data-copy-email="parbrayanjack@gmail.com">Copiar</button>
+                </div>
+                <p class="copy-status" aria-live="polite" data-copy-status></p>
+            </div>
+            <div class="contact-detail">
+                <h2>Conecta</h2>
+                <p><a href="https://github.com/ZeroJack73" target="_blank" rel="noopener noreferrer">⌘ &nbsp; GitHub · ZeroJack73</a></p>
+                <p><a href="https://linkedin.com/in/jack-par-tzul" target="_blank" rel="noopener noreferrer">✦ &nbsp; LinkedIn profesional</a></p>
+            </div>
+        </section>
+
+        <form class="contact-form" id="contact-form" action="mailto:parbrayanjack@gmail.com" method="post" enctype="text/plain">
+            <label>
+                <span>Nombre <b>*</b></span>
+                <input type="text" name="name" placeholder="Tu nombre" autocomplete="name" required>
+            </label>
+            <label>
+                <span>Correo <b>*</b></span>
+                <input type="email" name="email" placeholder="tu@email.com" autocomplete="email" required>
+            </label>
+            <label class="form-wide">
+                <span>Asunto <b>*</b></span>
+                <input type="text" name="subject" placeholder="¿En qué puedo ayudarte?" required>
+            </label>
+            <label class="form-wide">
+                <span>Mensaje <b>*</b></span>
+                <textarea name="message" rows="5" placeholder="Cuéntame un poco más..." required></textarea>
+            </label>
+            <button class="button form-wide" type="submit">Enviar mensaje <span aria-hidden="true">→</span></button>
+        </form>
+    </div>
+</div>
+{% endblock %}
