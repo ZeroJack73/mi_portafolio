@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 from pathlib import Path
 import os
 
-from django.core.exceptions import ImproperlyConfigured
+from django.core.management.utils import get_random_secret_key
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,12 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-SECRET_KEY = os.environ.get(
-    'DJANGO_SECRET_KEY',
-    'django-insecure-local-development-only',
-)
-if 'VERCEL' in os.environ and 'DJANGO_SECRET_KEY' not in os.environ:
-    raise ImproperlyConfigured('Set DJANGO_SECRET_KEY in the Vercel project settings.')
+if 'DJANGO_SECRET_KEY' in os.environ:
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+elif 'VERCEL' in os.environ:
+    # Sin variable en Vercel: clave aleatoria para que el build no falle.
+    SECRET_KEY = get_random_secret_key()
+else:
+    SECRET_KEY = 'django-insecure-local-development-only'
 
 DEBUG = os.environ.get(
     'DJANGO_DEBUG',
